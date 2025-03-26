@@ -1,0 +1,50 @@
+{
+    "Test1": "Test1",
+    "Test2": "Test2",
+    "Test3": "Test3",
+    "ManageWeb": "Layout & style",
+    "API": "Connnect API",
+    "FormManage": "Form and Table",
+    "MoveShape": "Move shape",
+    "MovePosition": "Move Position",
+    "TitleLayoutPage": "Layout and style",
+    "FormPage": {
+        "Banner": "Form & Table",
+        "Back":"Back",
+        "FORM": {
+            "Title": "Title",
+            "PreNameMr":"Mr",
+            "PreNameMs":"Ms",
+            "PreNameMrs":"Mrs",
+            "FirstName": "FirstName",
+            "LastName": "LastName",
+            "Birthday": "BirthDay",
+            "NationNallity": "NationNallity",
+            "CitiCenID": "CitiCenID",
+            "Gender": "Gender",
+            "Male": "Male",
+            "FeMale": "FeMale",
+            "Unsex": "Unsex",
+            "MobilePhone": "MobilePhone",
+            "Passport_No": "Passport No",
+            "ExpectSaraly": "ExpectSaraly",
+            "SUBMIT": "SUBMIT",
+            "RESET": "RESET"
+        },
+        "Table": {
+            "Name": "Name",
+            "Gender": "Gender",
+            "Phone": "Phone",
+            "NationNallity": "NationNallity",
+            "Manage": "Manage",
+            "Edit":"Edit",
+            "Delete":"Delete",
+            "SelectAll":"SelectAll",
+            "DeleteSelection":"DeleteSelection"
+        },
+        "Pagination": {
+            "Prev":"Prev",
+            "Next":"Next"
+        }
+    }
+}

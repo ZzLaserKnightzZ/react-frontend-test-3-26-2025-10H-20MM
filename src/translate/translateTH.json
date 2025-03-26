@@ -1,0 +1,50 @@
+{
+    "Test1":"แบบทดสอบที่1",
+    "Test2":"แบบทดสอบที่2",
+    "Test3":"แบบทดสอบที่3",
+    "ManageWeb":"การจัดการหน้าเว็บ",
+    "API":"การเชื่อมต่อ API",
+    "FormManage":"การจัดการหน้าฟอร์ม",
+    "MoveShape":"เลื่นรูปแบบ",
+    "MovePosition":"เปลี่ยนตำแหน่ง",
+    "TitleLayoutPage":"เปลี่ยนตำแหน่ง",
+    "FormPage": {
+        "Banner": "ฟอร์ม และ ตาราง",
+        "Back":"กลับ",
+        "FORM": {
+            "Title": "คำนำหน้าชื่อ",
+            "PreNameMr":"นาย",
+            "PreNameMs":"นางสาว",
+            "PreNameMrs":"นาง",
+            "FirstName": "ชื่อจริง",
+            "LastName": "นามสกุล",
+            "Birthday": "วันเกิด",
+            "NationNallity": "สัญชาติ",
+            "CitiCenID": "เลขบัตรประชาชน",
+            "Gender": "เพศ",
+            "Male": "ผู้ชาย",
+            "FeMale": "ผู้หญิง",
+            "Unsex": "ไม่ระบุ",
+            "MobilePhone": "หมายเลขโทรศัพท์มือถือ",
+            "Passport_No": "หนังสือเดินทาง",
+            "ExpectSaraly": " เงินเดือนที่คาดหวัง",
+            "SUBMIT": "ส่งข้อมูล",
+            "RESET": "ล้างข้อมูล"
+        },
+        "Table": {
+            "Name": "ชื่อ",
+            "Gender": "เพศ",
+            "Phone": "หมายเลขโทรศัพท์มือถือ",
+            "NationNallity": "สัญชาติ",
+            "Manage": "จัดการ",
+            "Edit":"แก้ไข",
+            "Delete":"ลบ",
+            "SelectAll":"เลือกทั้งหมด",
+            "DeleteSelection":"ลบทั้งหมด"
+        },
+        "Pagination": {
+            "Prev":"ก่อนหน้า",
+            "Next":"ถัดไป"
+        }
+    }
+}
