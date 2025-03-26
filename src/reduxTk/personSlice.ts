@@ -1,9 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store/store";
-import {
-  TGender,
-  TNationlity,
-} from "../Pages/FormPage";
+import { TGender, TNationlity } from "../Pages/FormPage";
 export interface IPerson {
   id: string;
   isSelected: boolean;
@@ -39,6 +36,42 @@ export const PersonSlice = createSlice({
   name: "person",
   initialState,
   reducers: {
+    prev: (state, _: PayloadAction<undefined>) => {
+      const minPage = 1;
+      state.currPage = state.currPage - 1;
+      if (state.currPage <= minPage) {
+        state.currPage = minPage;
+      }
+      //set pagination
+      const start = (state.currPage - 1) * MAX_PERSON_PERPAGE;
+      const stop = start + MAX_PERSON_PERPAGE;
+      state.persons = state.persons.map((p, i) => {
+        if (i >= start && i + 1 <= stop) {
+          p.isShowing = true;
+        } else {
+          p.isShowing = false;
+        }
+        return p;
+      });
+    },
+    next: (state, _: PayloadAction<undefined>) => {
+      const maxPage = Math.ceil(state.persons.length / MAX_PERSON_PERPAGE);
+      state.currPage = state.currPage + 1;
+      if (state.currPage >= maxPage) {
+        state.currPage = maxPage;
+      }
+      //set pagination
+      const start = (state.currPage - 1) * MAX_PERSON_PERPAGE;
+      const stop = start + MAX_PERSON_PERPAGE;
+      state.persons = state.persons.map((p, i) => {
+        if (i >= start && i + 1 <= stop) {
+          p.isShowing = true;
+        } else {
+          p.isShowing = false;
+        }
+        return p;
+      });
+    },
     seedData: (state, action: PayloadAction<IPerson[]>) => {
       state.persons = action.payload;
       state.currPage = 1;
@@ -48,7 +81,7 @@ export const PersonSlice = createSlice({
     },
     addPerson: (state, action: PayloadAction<IPerson>) => {
       state.persons.push(action.payload);
-      state.editePerson= null;
+      state.editePerson = null;
     },
     deletePerson: (state, action: PayloadAction<{ id: string }>) => {
       state.persons = state.persons.filter((x) => x.id !== action.payload.id);
@@ -87,7 +120,7 @@ export const PersonSlice = createSlice({
       }
     },
     pagination: (state, action: PayloadAction<{ page: number }>) => {
-      const start = (action.payload.page-1) * MAX_PERSON_PERPAGE;
+      const start = (action.payload.page - 1) * MAX_PERSON_PERPAGE;
       const stop = start + MAX_PERSON_PERPAGE;
       state.currPage = action.payload.page;
       state.persons = state.persons.map((p, i) => {
@@ -99,7 +132,7 @@ export const PersonSlice = createSlice({
         return p;
       });
     },
-    deleteSelectedPerson: (state,_) => {
+    deleteSelectedPerson: (state, _) => {
       state.persons = state.persons.filter((x) => x.isSelected !== true);
       state.persons = state.persons.map((p) => {
         p.isShowing = true;
@@ -331,6 +364,8 @@ export const PersonSlice = createSlice({
 });
 
 export const {
+  next,
+  prev,
   seedData,
   selectEditPerson,
   addPerson,

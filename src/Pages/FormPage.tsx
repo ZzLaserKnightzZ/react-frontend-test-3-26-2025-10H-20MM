@@ -1,6 +1,6 @@
 import { BackToHomePage, CheckBox, ChnageLangContainre, ErrorText, FormContainer, FormText, FormWrap, FormWraperContainer, From, IdCardContainer, IdCardInputText, IdCardShowText, InputText, Label, MangeBtn, NormalRow, PaginationContainer, PaginationItem, PaginationSelecter, PaginationShiftLeft, PaginationShiftRight, RadioButton, Row1, Row2, Row3, Row4, Row5, Row6, Row7, SeeDataBtn, SelectOption, Separate, SortSign, SortSignContainer, Table, TableWraper, Tbody, Td, Th, Thead, Tr, TrHearder } from "../styled/FromPage.styled";
 import { useAppDispatch } from "../reduxTk/store/store";
-import { IPerson, MAX_PERSON_PERPAGE, currPageSelecter, deleteSelectedPerson, editpersonSelecter, pagination, personSelecter,  seedData, selectAllPerson, selectEditPerson, selectPerson, sortByGender, sortByName, sortByNationality, sortByPhoneNumber } from "../reduxTk/personSlice";
+import { IPerson, MAX_PERSON_PERPAGE, currPageSelecter, deleteSelectedPerson, editpersonSelecter, next, pagination, personSelecter,  prev,  seedData, selectAllPerson, selectEditPerson, selectPerson, sortByGender, sortByName, sortByNationality, sortByPhoneNumber } from "../reduxTk/personSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { addPerson, deletePerson, editPerson } from "../reduxTk/personSlice"
 import { v4 as uuidv4 } from 'uuid';
@@ -341,7 +341,7 @@ const TableComponent = memo(() => {
           dateOfbirth: "10-10-2025",
           identityCard: "1900000000000",
           prefexCellPhone: "+88",
-          cellPhone: "0800000000",
+          cellPhone: "080000000"+Math.floor(Math.random()*9),
           passPort: "9999999999",
           saralyExpect: "9999999999",
           nationality:NATIONALITY_TABLE[Math.floor(Math.random()*NATIONALITY_TABLE.length)],
@@ -454,7 +454,7 @@ const PaginationComponent = memo(() => {
     const { t } = useTranslation('translation', { keyPrefix: 'FormPage.Pagination' });
     return (<>
         <PaginationContainer>
-            <PaginationShiftLeft>&lt;{t("Prev")}</PaginationShiftLeft>
+            <PaginationShiftLeft onClick={()=> dispatcher(prev())}>&lt;{t("Prev")}</PaginationShiftLeft>
             <PaginationSelecter>
                 {Array.from({ length: Math.ceil(persons.length / MAX_PERSON_PERPAGE) }).map((_, i) => i + 1).map(p =>
                     <PaginationItem
@@ -466,7 +466,7 @@ const PaginationComponent = memo(() => {
                         {p}
                     </PaginationItem>)}
             </PaginationSelecter>
-            <PaginationShiftRight>{t("Next")}&gt;</PaginationShiftRight>
+            <PaginationShiftRight onClick={()=> dispatcher(next())}>{t("Next")}&gt;</PaginationShiftRight>
         </PaginationContainer></>);
 });
 

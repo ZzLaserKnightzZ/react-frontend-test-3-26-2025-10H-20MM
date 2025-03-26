@@ -345,6 +345,9 @@ export const Tr = styled.tr`
 export const MangeBtn = styled.span`
   margin: 3px;
   font-size: 1.3rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 3px;
 `;
 
 export const Separate = styled.span`
